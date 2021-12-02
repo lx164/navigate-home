@@ -1,0 +1,26 @@
+name: A TO A:GH_PAGES
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    # 拉取代码
+    - name: Checkout
+      uses: actions/checkout@main
+
+    # 3、部署到 GitHub Pages
+    - name: Push To LiangSenCheng/deploy-navigate-home
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.REPO_DEPLOY_NAVIGATE_HOME_TOKEN }}
+      with:
+        # 待推送的文件目录
+        source-directory: '/'
+        # 目标仓库用户名
+        destination-github-username: 'LiangSenCheng'
+        # 目标仓库名
+        destination-repository-name: 'deploy-navigate-home'
+        # Commit信息
+        commit-message: ${{github.event.head_commit.message}}
+        # Push到目标仓库的分支
+        target-branch: main
