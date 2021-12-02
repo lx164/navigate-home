@@ -1,7 +1,7 @@
 name: A TO A:GH_PAGES
 on: [push]
 jobs:
-  build-and-deploy:
+  push-and-deploy:
     runs-on: ubuntu-latest
     steps:
     # 拉取代码
