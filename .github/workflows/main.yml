@@ -15,7 +15,7 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.REPO_DEPLOY_NAVIGATE_HOME_TOKEN }}
       with:
         # 待推送的文件目录
-        source-directory: '/'
+        source-directory: 'web'
         # 目标仓库用户名
         destination-github-username: 'LiangSenCheng'
         # 目标仓库名
